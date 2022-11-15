@@ -1,70 +1,179 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+
+body, html{
+    background-color: #000;
+    color: #fff;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+a, a:hover,a:visited{
+    color: unset; /*nao terá outra cor a nao ser a padrao*/
+    text-decoration: none; /*nao terá nenum sublinhado*/
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+header{
+    background: linear-gradient(180deg, #102347 0%, #181818 100%);
+    height: 220px;
+    display: flex;
+    align-items: center;/*juntamente com o display flex alinhei na vertical*/
+    justify-content:center;/*alinhamento na horizontal*/
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.dsmeta-logo-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.dsmeta-logo-container img{
+    width: 235px;
+    height: 106.07px;
+    margin-top: 28px;   
+}
+
+.dsmeta-logo-container h1{
+    margin-top: 15px;
+    font-size: 24px;
+}
+
+.dsmeta-logo-container p{
+    font-size: 14px;
+    font-weight: 300;/*o peso da fonte (fina ou grossa)*/
+}
+
+.dsmeta-card{
+    background-color: #283142;
+    border-radius: 10px;
+    padding: 30px 10px;
+}
+.dsmeta-sales-title{
+   /* margin-top: 32px;
+    margin-left: 16px;
+    margin-right: 36px;
+   */
+    color: #676FFF; 
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dsmeta-container{
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto; /*macete para alinhar ao centro*/
+}
+
+ #sales {
+   padding: 40px 10px;
+}
+.dsmeta-form-control-container{
+ margin-bottom: 16px;
+ max-width: 300px;
+}
+
+.dsmeta-form-control{
+    background-color: #1B2531;
+    width: 100%;
+    height: 46px;
+    border: 1px solid #384459;
+    color: #9aaabe;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.dsmeta-sales-table{
+    width: 100%;
+   border-spacing: 0;
+   border-collapse: collapse;/*para eu poder usar o border top nas filhas*/
+}
+
+.dsmeta-sales-table thead{
+    height:  55px;
+    font-size: 16px;
+    color: #E9E9E9;
+    font-weight: 700;
+}
+
+.dsmeta-sales-table tbody{
+    font-size: 14px;
+    font-weight: 400;
+    color: #CFCFCF;
+}
+
+.dsmeta-sales-table tbody tr{
+   height: 74px;
+   border-top: 1px solid #5F6E82;
+   text-align: center;
+}
+
+.dsmeta-sales-table tbody tr:hover > td{
+/* este > td so de passar em um elemento da linha ja faz efeito*/
+    background-color: #384459;
+}
+
+.dsmeta-sales-table tbody tr:nth-child(odd){
+ /* eu quero qual filho do tr ? quero o filho impar entao, coloco dentro 
+ parentese 'odd' que significa impar. neste caso estou dizendo quando a 
+ linha for impar eu coloco este background  definido no corpo da classe*/
+
+    background-color: #242c3b;
+}
+
+.dsmeta-red-btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.dsmeta-red-btn {
+    height: 45px;
+    width: 45px;
+    background: rgba(255, a07, 114, 0.1);
+    border: 1px solid #ff6b72;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /*faz o mouse virar maozinha*/
+}
+
+.dsmeta-red-btn img {
+    width: 19px;
+}
+
+.show576{
+    display: none;
+}
+
+@media (min-width: 576px){
+    .show576{
+        display: table-cell; /*display normal de um elemento de tabela, resumindo: antes de 576px a class esta como none, aqui vai ficar normal*/
+       
+    }
+    .dsmeta-card {
+        padding: 35px;
+    }
+
+    .dsmeta-sales-table tbody tr{
+        height: 55px;
+    }
+
+    .dsmeta-sales-table tbody{
+        font-size: 18px;
+    }
+}
+
+.show992{
+    display: none;
+}
+
+@media (min-width: 992px){
+    .show992{
+        display: table-cell;
+    }
 }
