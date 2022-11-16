@@ -1,12 +1,14 @@
-1º PASSO: Abrir o git bash he e iniciar um projeto react com o comando yarn create vite frontend --template react-ts
-o final ts significa q irei fazer em typescript.
+                            ....Para quem dejesa criar o projeto por si prÃ³prio deixo aqui as instruÃ§oes....
 
-2º PASSO: Abrir a pasta que foi criada automaticamente chamada frontend, abrir o git bash he e digitar o comando yarn 
- este comando irá baixar todas dependencias que meu projeto irá precisar.
-depois de baixado digito o comando   yarn dev este comando irá iniciar o servidor para rodar a aplicaçao e me dará 
-o endereço do localhost e sua porta para eu acessar.
+1Âº PASSO: Abrir o git bash he e iniciar um projeto react com o comando yarn create vite frontend --template react-ts
+o final ts significa q irÃ¡ trabalhar  em typescript.
 
-3º PASSO: Criar projeto Spring Boot no Spring Initializr com as seguintes dependências:
+2Âº PASSO: Abrir a pasta que foi criada automaticamente chamada frontend, abrir o git bash he e digitar o comando yarn 
+ este comando irÃ¡ baixar todas dependencias que meu projeto irÃ¡ precisar.
+depois de baixado digite o comando   yarn dev este comando irÃ¡ iniciar o servidor para rodar a aplicaÃ§ao e te darÃ¡ 
+o endereÃ§o do localhost e sua porta para vc acessar.
+
+3Âº PASSO: Criar projeto Spring Boot no Spring Initializr com as seguintes dependÃªncias:
 
 Web
 JPA
@@ -14,14 +16,14 @@ H2
 Security
 
 obs: colocar no google spring initializr e entrar no site https://start.spring.io/ e preencher os campos com os dados :
-maven project; Java; spring boot 2.7.1; group coloquei com.hosias; artifact coloquei dsmeta; descriçao coloquei semana react;  
+maven project; Java; spring boot 2.7.1; group coloquei com.hosias; artifact coloquei dsmeta; descriÃ§ao coloquei semana react;  
 e a esquerda add as dependencias neste caso web jpa h2 security.
-em seguida clicar em generate ctr + (para criar o projeto). irá baixar um arquivo zip, 
+em seguida clicar em generate ctr + (para criar o projeto). irÃ¡ baixar um arquivo zip, 
 vou abrir este arquivo com ouse direito open com winrar e arastar a pasta para dentro do projeto e colocar ao lado da 
 pasta front end, vou renomear esta pasta e colocar backend.neste caso ficou assim: no front end ficou o projeto React e 
 no backend ficou o projeto Spring
 
-4º PASSO: Ajuste no arquivo pom.xml:
+4Âº PASSO: Ajuste no arquivo pom.xml:
 Abrir o STS (programa ide do spring (spring tool suite)), selecionar a primeira pasta que esta o meu projeto (pasta pai).
 agora importar o projeto, file --> import-->maven-->existing maven project next clica em browser proucurar a pasta
 backend do projeto precisa de ter um arquivo aqui dentro chamado pom.xml e ser marcado na caixinha entao perta finish.
