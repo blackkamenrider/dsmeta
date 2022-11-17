@@ -1,4 +1,4 @@
-                            ....Para quem dejesa criar o projeto por si próprio deixo aqui as instruçoes....
+﻿                            ....Para quem dejesa criar o projeto por si próprio deixo aqui as instruçoes....
 
 1º PASSO: Abrir o git bash he e iniciar um projeto react com o comando yarn create vite frontend --template react-ts
 o final ts significa q irá trabalhar  em typescript.
@@ -27,3 +27,22 @@ no backend ficou o projeto Spring
 Abrir o STS (programa ide do spring (spring tool suite)), selecionar a primeira pasta que esta o meu projeto (pasta pai).
 agora importar o projeto, file --> import-->maven-->existing maven project next clica em browser proucurar a pasta
 backend do projeto precisa de ter um arquivo aqui dentro chamado pom.xml e ser marcado na caixinha entao perta finish.
+
+5º Passo: apagar os dados padroes que preenche o navegar com informaçoes do react
+No visual studio code (ou ide q estiver trabalhando)dentro de src-->assents  exclua os arqivos .svg ; apago app.css 
+(pois vamos criar outros específicos);
+
+                                          INDO AGORA PARA BACKEND
+
+6º instalar o postman (Api Testador de requisiçoes (retorna o endereço quando se digita um cep mais informaçoes no site abaixo )) 
+página web: https://www.postman.com/downloads/?utm_source=postman-home
+
+7º Passo: Baixar e Instalar o heroku (permite hospedagem, configuração, testagem e publicação de projetos virtuais na nuvem)
+web site: https://devcenter.heroku.com/articles/heroku-cli
+depois de instalado abrir cmd-->heroku -v  ( para confirmar se esta instalado );
+
+8º Passo: ir na pasta do projeto--> pasta que contém as pastas backend e frontend--> abrir GIT BASH HE
+heroku -v (confirmar se esta instalado)
+
+9º Passo: Configuraçao de segurança do projeto
+abrir o sts spring-->
