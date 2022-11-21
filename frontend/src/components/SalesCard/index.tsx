@@ -85,7 +85,7 @@ o $BASE_URL é a variavel defina em no arquivo request.ts q esta dentro de utils
                              <td>R$ {sale.amount.toFixed(2)}</td> {/*.tofixed funçao javascript para formatar com duas casas decimais*/}
                              <td>
                                  <div className="dsmeta-red-btn-container">
-                                    <NotificationButton/>
+                                    <NotificationButton saleId={sale.id}/>
                                  </div>
                                  
                              </td>
