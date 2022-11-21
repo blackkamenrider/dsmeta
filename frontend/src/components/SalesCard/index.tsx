@@ -9,9 +9,10 @@ import NotificationButton from '../NotificationButton'
 import  './styles.css'
 
 function SalesCard() {
-    //const max = new Date(new Date().setDate(new Date().getDate() + 365));
-    const [minDate , setMinDate] = useState(new Date());
-    const [maxDate,  setMaxDate] = useState(new Date());
+    const min = new Date(new Date().setDate(new Date().getDate() - 365));
+    const max = new Date(); {/* data atual */} 
+    const [minDate , setMinDate] = useState(min);
+    const [maxDate,  setMaxDate] = useState(max);
 
 /*a linhas a seguir pega os valores que virao do backend atraves do arquivo definido components/models/sales.ts*/
     const [sales, setSales] = useState<Sale[]> ([]);   
@@ -20,10 +21,15 @@ function SalesCard() {
 /* esta linnha a baixo veio do import useEfect from react. ela faz a busca no backend 
 o $BASE_URL é a variavel defina em no arquivo request.ts q esta dentro de utils q esta dentro de src*/
     useEffect(()=>{
-        axios.get(`${BASE_URL}/sales`).then(response => {
+
+/* estou pegando a data convertendo ela para ano mes e dia para jogar na requisiçao http. posso ular o console.log() para verificar como vai sair */
+        const dmin = minDate.toISOString().slice(0,10); // slice recorta o texto neste caso desde a posiçao 0 e pega 10 caracteres para frente
+        const dmax = maxDate.toISOString().slice(0,10);
+
+        axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`).then(response => {
             setSales(response.data.content);
         });
-     }, []);
+     }, [minDate, maxDate]);
 
 
     return(
