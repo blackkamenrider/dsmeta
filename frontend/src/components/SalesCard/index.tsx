@@ -3,6 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Sale } from "../../models/sale";
+import { BASE_URL } from "../../utils/request";
 import NotificationButton from '../NotificationButton'
 import  './styles.css'
 
@@ -11,11 +13,18 @@ function SalesCard() {
     const [minDate , setMinDate] = useState(new Date());
     const [maxDate,  setMaxDate] = useState(new Date());
 
+/*a linhas a seguir pega os valores que virao do backend atraves do arquivo definido components/models/sales.ts*/
+    const [sales, setSales] = useState<Sale[]> ([]);   
+
+
+/* esta linnha a baixo veio do import useEfect from react. ela faz a busca no backend 
+o $BASE_URL é a variavel defina em no arquivo request.ts q esta dentro de utils q esta dentro de src*/
     useEffect(()=>{
-        axios.get("http://localhost:8080/sales").then(response => {
-            console.log(response.data);
+        axios.get(`${BASE_URL}/sales`).then(response => {
+            setSales(response.data.content);
         });
      }, []);
+
 
     return(
    
@@ -56,13 +65,18 @@ function SalesCard() {
                          </tr>
                      </thead>
                      <tbody>
-                         <tr>
-                             <td className="show992">#341</td>
-                             <td className="show576">08/07/2022</td>
-                             <td>Anakin</td> 
-                             <td className="show992">15</td>
-                             <td className="show992">11</td>
-                             <td>R$ 55300.00</td>
+                        {/* linhas a seguir faz os dados dinâmicos...este map permite percorrer uma lista e fazer uma operaçao a cada iten da list */}
+                        {/*sales é um apelido para cada item d lista => aponta para funçao a segui das chaves q será executada para cada item */}
+                        
+                        {sales.map(sale =>{
+                            return(
+                                <tr key={sale.id}> {/*sempre q usar uma renderizaçao de conteudo desta forma o react exige q eu uso o key com um indetificador unico, entao usei o proprio id*/}
+                             <td className="show992">{sale.id}</td>
+                             <td className="show576">{new Date(sale.date).toLocaleDateString()}</td> {/*funçao java script para formatar datas*/}
+                             <td>{sale.sellerName}</td> 
+                             <td className="show992">{sale.visited}</td>
+                             <td className="show992">{sale.deals}</td>
+                             <td>R$ {sale.amount.toFixed(2)}</td> {/*.tofixed funçao javascript para formatar com duas casas decimais*/}
                              <td>
                                  <div className="dsmeta-red-btn-container">
                                     <NotificationButton/>
@@ -70,34 +84,11 @@ function SalesCard() {
                                  
                              </td>
                          </tr>
+                            )
+                        })
 
-                         <tr>
-                             <td className="show992">#341</td>
-                             <td className="show576">08/07/2022</td>
-                             <td>Anakin</td> 
-                             <td className="show992">15</td>
-                             <td className="show992">11</td>
-                             <td>R$ 55300.00</td>
-                             <td>
-                                 <div className="dsmeta-red-btn-container">
-                                    <NotificationButton/>
-                                 </div>
-                             </td>
-                         </tr>
-
-                         <tr>
-                             <td className="show992">#341</td>
-                             <td className="show576">08/07/2022</td>
-                             <td>Anakin</td> 
-                             <td className="show992">15</td>
-                             <td className="show992">11</td>
-                             <td>R$ 55300.00</td>
-                             <td>
-                                 <div className="dsmeta-red-btn-container">
-                                    <NotificationButton/>
-                                 </div>
-                             </td>
-                         </tr>
+                        }
+                        
                      </tbody>
                  </table>
             </div>
